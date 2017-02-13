@@ -26,7 +26,7 @@ USER=$(jq -r '.source.user // ""' < $SCRIPT_INPUT)
 SYNC_DIR=$(jq -r '.params.sync_dir // ""' < $SCRIPT_INPUT)
 RSYNC_OPTS_ARR=$(jq -r '.params.rsync_opts // ""' < $SCRIPT_INPUT)
 jq -re '.source.disable_version_path' < $SCRIPT_INPUT >/dev/null
-DISABLE_VERSION_PATH=$?
+DISABLE_VERSION_PATH=0
 
 if [ -z "$RSYNC_OPTS_ARR" ]
 then
